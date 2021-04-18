@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+   
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">   
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  </head>
+  <body class="text-center">
+
+    {% if messages %}
+      {% for message in messages %}
+        {% ifequal message.tags "error" %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% endifequal %}
+          {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      {% endfor %}
+    {% endif %}
+
+    
+    <div class="container">
+      
+    
+    
+
+
+    <main class="form-login d-flex justify-content-center" style="margin-top: 100px;">
+      <form class="col-4" method="POST">
+        {% csrf_token %}
+        <!-- <i class="fa fa-lightbulb-o"></i> -->
+        <h3><i class="fa fa-lightbulb-o"></i>
+          <b>Opportunity</b></h3>
+
+          <h4>Login</h4>
+        <br>
+
+        <label for="inputUsername" class="visually-hidden">Username</label>
+        <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus>
+
+        <br>
+        <label for="inputPassword" class="visually-hidden">Password</label>
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required>
+        <div class="checkbox mb-3">
+        
+        </div>
+        <br>
+        <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
+      </form>
+    </main>
+    <br>
+    <p><a href="{% url 'signup' %}">Create </a>an account</p>
+
+
+
+    </div>
+
+
+    
+  </body>
+</html>

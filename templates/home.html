@@ -1,0 +1,213 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Opportunity Management</title>
+	<!--makes the website responsive-->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="{% static 'opp.css' %}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</head>
+<body>
+	{% if messages %}
+      {% for message in messages %}
+        {% ifequal message.tags "error" %}
+          <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        {% else %}
+          <div class="alert alert-success alert-dismissible fade show" role="alert">
+        {% endifequal %}
+          {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      {% endfor %}
+    {% endif %}
+
+	<section id="header">
+		<div class="menu-bar">
+			<nav class="navbar navbar-expand-lg navbar-light">
+				<!-- <div class="container"> -->
+  <div class="container-fluid">
+    <!-- <a class="navbar-brand" href="#"><i class="fa fa-lightbulb-o"></i><span><b> Opportunity</b></span></a> -->
+
+    <a href="" class="text-reset text-decoration-none">
+    <h2><i class="fa fa-lightbulb-o"></i><b> Opportunity</b></h2>
+</a>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    
+      <ul class="navbar-nav ml-auto">
+
+      	{% if request.session.username %}
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account' %}">Create Account</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'opportunity' %}">Create Opportunity</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+        </li>
+        
+        {% else %}
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'signup' %}">Sign Up</a>
+        </li>
+
+        {% endif %}
+        
+      </ul>
+   
+  </div>
+
+
+</nav>
+</div>
+
+<div class="banner text-center">
+	
+</div>
+	</section>
+
+
+	<form class="search-job text-center" method="POST">
+        {% csrf_token %}
+
+        <!-- <label for="inputUsername" class="visually-hidden">Username</label> -->
+        <!-- <input type="text" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus> -->
+        <input type="text" class="form-control" placeholder="search Keyword" name="keyword">
+        <input type="submit" class="btn btn-primary" value="Find Job">
+
+        <!-- <button class="w-100 btn btn-lg btn-primary" type="submit">Sign Up</button> -->
+    </form>
+
+			
+		</div-->
+		<!------Recent Jobs---->
+		<section id="jobs">
+			<div class="container">
+
+				{% if opportunities %}
+					<h5>NOW RECRUITING!</h5>
+				{% else %}
+					<h5>NOTHING FOUND!</h5>
+				{% endif %}
+
+
+
+				{% for opportunity in opportunities %}
+					<div class="company details">
+						<div class="job-update">
+							<!-- <h4><b>Full Stack Developer</b></h4> -->
+							<h4><b>{{opportunity.name}}</b></h4>
+							<p>{{opportunity.account.name}}</p>
+							<i class="fa fa-money"></i><span>{{opportunity.amount}}</span><br>
+							<i class="fa fa-map-marker"></i><span>{{opportunity.account.address}}</span><br>
+							<span>{{opportunity.stage}}</span>
+							
+						</div>
+						
+					</div>
+				{% endfor %}
+
+			</div>
+		</section>
+
+		<!--site stats-->
+		<section id="site-stats">
+			<div class="container text-center">
+				<h3>Opportunity Management Stats</h3>
+				<div class="row">
+				<div class="col-md-6">
+					<div class="row">
+						<div class="col-6">
+						<div class="stats-box">
+							<i class="fa fa-user-o"></i><span><small>100k +</small></span>
+							<p>Job Seekers</p>
+						</div>
+						</div>
+
+						<div class="col-6">
+						<div class="stats-box">
+							<i class="fa fa-slideshare"></i><span><small>5k +</small></span>
+							<p>Employers</p>
+						</div>
+						</div>
+					</div>
+						
+					</div>
+					<div class="col-md-6">
+					<div class="row">
+						<div class="col-6">
+						<div class="stats-box">
+							<i class="fa fa-hand-peace-o"></i><span><small>10k +</small></span>
+							<p>Active Jobs</p>
+						</div>
+						</div>
+						<div class="col-6">
+						<div class="stats-box">
+							<i class="fa fa-building-o"></i><span><small>400 +</small></span>
+							<p>Companies</p>
+						</div>	
+						</div>
+						
+					</div>
+				</div>
+					
+				</div>
+				
+			</div>
+		</section>
+	</section>
+
+
+<!---banner-->
+<section id="app-banner" class="text-center">
+	<h1>Find Jobs On Mobile, Download Opportunity Management App</h1>
+	<!-- <img src="plaa.png"> -->
+	<img src="{% static 'plaa.png' %}">
+	<img src="{% static 'plaIO.png' %}">
+	
+	<!-- <img src="plaIO.png"> -->
+</section>
+<!--footer-->
+<section id="footer" class="text">
+
+	<div class="container">
+	<i class="fa fa-lightbulb-o"></i><span>Opportunity</span>
+	<p>We assist job seekers by providing latest and verified job adverts and career information from employers and recruiters in all Kenyan provinces. We ensure candidates get to apply for insider job vacancies that go unadvertised both online and in newspapers. Our job services are FREE ie. we do not expect jobseekers to pay for our career services. Subscribe to Opportunity to be updated on recent advertised jobs.</p>
+	<a href=""><i class="fa fa-twitter"></i></a>
+	<a href=""><i class="fa fa-facebook"></i></a>
+	<a href=""><i class="fa fa-linkedin"></i></a>
+	<a href=""><i class="fa fa-reddit-alien"></i></a>
+
+	<hr>
+	<p>Opportunity Management<i class="fa fa-copyright"></i>2021</p>
+</div>
+</section>
+
+<!-- </div> -->
+</body>
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</html>

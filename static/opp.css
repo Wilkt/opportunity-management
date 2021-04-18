@@ -1,0 +1,168 @@
+*
+{
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+.menu-bar{
+	 background-image: linear-gradient(to right, #dc143c, #00008b);
+}
+.nav-link{
+	font-size: 16px;
+	color: #fff !important;
+	margin: 2px;
+}
+.navbar-nav{
+	text-align: right;
+}
+.menu-bar .navbar-toogler{
+	padding-right: 0;
+	outline:none;
+	border: none;
+}
+.banner{
+	height: 80vh;
+	background-image: url(myaff3.jpg);
+	background-size: cover;
+	background-position: right;
+	color: #000;
+}
+.search-job{
+	padding: 30px 0;
+	margin: -50px 6% 50px;
+	background-image: linear-gradient(to right, #dc143c, #00008b);
+}
+.search-job .form-control{
+	max-width: 250px;
+	display: inline-flex;
+	margin: 10px 5px;
+	border-radius: 0;
+	box-shadow: none !important;
+	border: none !important;
+} 
+.search-job .btn-primary{
+	border-radius: 0;
+	box-shadow: none !important;
+	border: none;
+	display: inline-flex;
+	margin: 5px;
+	padding: 5px 20px;
+}
+#recruiters{
+	padding-top: 50px;
+	padding-bottom: 40px;
+}
+#recruiters h3{
+	text-align: center;
+	padding-bottom:40px;
+}
+h3::before{
+	content: '';
+	background-image: linear-gradient(to right, #dc143c, #00008b);
+	width: 50px;
+	height: 30px;
+	position: absolute;
+	z-index: -10;
+	margin-top: -15px;
+	border-top-left-radius: 70px;
+	border-bottom-right-radius: 90px;
+}
+
+/*  recent jobs */
+#jobs{
+	background: #f8f8fa;
+	padding: 50px 0;
+}
+.company-details{
+	box-shadow: 0 2px 70px 0 rgba(110,130,208, .18);
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+.job-update{
+	background: #fff;
+	padding: 10px 20px;
+	border-radius: 5px;
+}
+.job-update .fa{
+	margin-top: 5px;
+	margin-right: 10px;
+	color: #dc143c;
+}
+.job-update small{
+	background: #efefef;
+	padding: 1px 5px;
+	margin: 0 5px;
+}
+.job-update p{
+	margin-bottom: 0 !important;
+}
+.job-update a{
+	text-decoration: none !important;
+	color: #b6bed2;
+	float: right;
+}
+.page-link li{
+	height: 25px;
+	width: 25px;
+	list-style: none;
+	display: inline-block;
+	cursor: pointer;
+}
+.page-link li:hover, .active{
+	color: #fff;
+	background-image:linear-gradient(to right, #dc143c, #00008b);
+}
+.left-arrow{
+	color: #999;
+}
+.right-arrow{
+	color: #29b929;
+}
+#site-stats{
+	padding: 100px 0;
+}
+#site-stats h3{
+	margin-bottom: auto;
+}
+.stats-box{
+	padding: 30px;
+	border-radius: 10px;
+	margin: 20px 0;
+	box-shadow: 0 2px 40px 0 rgba(110, 130, 208, .18);
+}
+.stats-box .fa{
+	font-size: 30px;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+#app-banner{
+	background-image:linear-gradient(to right, #dc143c, #00008b);
+	padding: 50px 0;
+}
+#app-banner h1{
+	margin-top: 28px;
+	color: #fff;
+}
+#app-banner img{
+	width: 150px;
+	margin: 50px 0;
+}
+
+/*footer*/
+#footer{
+	background: #f8f9fd
+	padding: 20px 10px 8px;
+}
+.fa-lightbulb-o{
+	margin: 30px 0;
+}
+#footer p{
+	color: #333;
+}
+#footer a i{
+	width: 50px;
+
+}
+hr{
+	background-color: #ccc; 
+}
